@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_donate"
+        android:title="Donate"
+        android:icon="@drawable/heart"
+        />
+
+    <item android:id="@+id/nav_work"
+        android:title="Work"
+        android:icon="@drawable/suitcase"
+        />
+    <item android:id="@+id/nav_contribute"
+        android:title="Contribute"
+        android:icon="@drawable/puzzle"
+        />
+    <item android:id="@+id/nav_about"
+        android:title="About Us"
+        android:icon="@drawable/info"
+        />
+    <item android:id="@+id/nav_upcoming_events"
+        android:title="Events"
+        android:icon="@drawable/event"
+        />
+
+</menu>
