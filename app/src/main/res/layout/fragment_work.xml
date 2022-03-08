@@ -163,15 +163,16 @@
             android:id="@+id/workSkillsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workContactField"
-            app:layout_constraintStart_toStartOf="@id/workContactField"
-            app:layout_constraintEnd_toEndOf="@id/workContactField"
+            app:layout_constraintTop_toBottomOf="@id/workRoleSpinner"
+            app:layout_constraintStart_toStartOf="@id/workRoleSpinner"
+            app:layout_constraintEnd_toEndOf="@id/workRoleSpinner"
             android:text="Skills "
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:textColor="@color/cardTextColor"
             android:textSize="12sp"
             app:layout_constraintHorizontal_bias="0"
+            android:visibility="invisible"
             />
 
         <com.google.android.material.chip.ChipGroup
@@ -191,7 +192,7 @@
             android:id="@+id/workAvailableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workSkillsChipGroup"
+            app:layout_constraintTop_toBottomOf="@id/workContactField"
             app:layout_constraintStart_toStartOf="@id/workContactField"
             app:layout_constraintEnd_toEndOf="@id/workContactField"
             android:text="Availability"
@@ -248,11 +249,13 @@
             app:layout_constraintHorizontal_bias="0"
             />
 
+
+
         <TextView
             android:id="@+id/workQuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workRoleSpinner"
+            app:layout_constraintTop_toBottomOf="@id/workSkillsChipGroup"
             app:layout_constraintStart_toStartOf="@id/workContactField"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="Why Should We Hire You?"

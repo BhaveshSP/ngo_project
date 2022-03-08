@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -50,17 +51,24 @@ public class WorkFragment extends Fragment {
         Spinner availableSpinner = view.findViewById(R.id.workAvailableSpinner);
         Spinner roleSpinner = view.findViewById(R.id.workRoleSpinner);
         pdfFileNameText = view.findViewById(R.id.workResumeFileNameText);
-        addChips(chipGroup);
         ArrayList<String> availableList = new ArrayList<>();
         availableList.add("3 Months");
         availableList.add("6 Months");
 
         ArrayList<String> roleList = new ArrayList<>();
-        roleList.add("UI/UX Designer");
-        roleList.add("Android Developer");
-        roleList.add("React Native Developer");
-        roleList.add("Web Developer");
-
+        roleList.add(0,"Choose");
+        roleList.add("Business Developer(Sales)");
+        roleList.add("Graphic Designing");
+        roleList.add("Social Media Marketing");
+        roleList.add("Web Development");
+        roleList.add("Marketing");
+        roleList.add("Mobile App Development");
+        roleList.add("Operations");
+        roleList.add("Law Legal");
+        roleList.add("Human Resources");
+        roleList.add("Digital Marketing");
+        roleList.add("Content Writing");
+        TextView skillsTextView = view.findViewById(R.id.workSkillsText);
 
 
         ArrayAdapter<String> availableAdapter = new ArrayAdapter<>(requireContext(),android.R.layout.simple_dropdown_item_1line,availableList);
@@ -68,7 +76,19 @@ public class WorkFragment extends Fragment {
 
         ArrayAdapter<String> roleAdapter = new ArrayAdapter<>(requireContext(),android.R.layout.simple_dropdown_item_1line,roleList);
         roleSpinner.setAdapter(roleAdapter);
+        roleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i>0){
+                    skillsTextView.setVisibility(View.VISIBLE);
+                }
+                String  selectedRole = roleSpinner.getSelectedItem().toString();
+                addChips(chipGroup,selectedRole);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
         Button uploadResumeButton = view.findViewById(R.id.workResumeUploadButton);
         uploadResumeButton.setOnClickListener(view1 -> pickResumeFromFiles());
 
@@ -85,17 +105,133 @@ public class WorkFragment extends Fragment {
 
 
 
-    private void addChips(ChipGroup chipGroup){
+    private void addChips(ChipGroup chipGroup,String selectedRole){
         ArrayList<String> skillsList = new ArrayList<>();
-        skillsList.add("Kotlin");
-        skillsList.add("Java");
-        skillsList.add("Python");
-        skillsList.add("XML");
-        skillsList.add("Firebase");
-        skillsList.add("PHP");
-        skillsList.add("CSS");
-        skillsList.add("UI/UX");
+        if(selectedRole.equals("Business Developer(Sales)"))
+        {
+            skillsList.add("English Proficiency (Spoken)");
+            skillsList.add("English Proficiency (Written)");
+            skillsList.add("MS Excel");
+            skillsList.add("Digital Marketing");
+            skillsList.add("Email Marketing");
+            skillsList.add("Social Media Marketing");
+        }
+        else if(selectedRole.equals("Graphic Designing"))
+        {
+            skillsList.add("Adobe Photoshop");
+            skillsList.add("Adobe Illustrator");
+            skillsList.add("CorelDRAW");
+            skillsList.add("Adobe after effects");
+            skillsList.add("Adobe premium pro");
+            skillsList.add("Adobe creative studio");
+            skillsList.add("Video editing");
+            skillsList.add("Adobe photoshop lightroom");
+            skillsList.add("Ui ux design");
 
+        }
+        else if(selectedRole.equals("Social Media Marketing"))
+        {
+            skillsList.add("Social Media Marketing");
+            skillsList.add("Digital Marketing");
+            skillsList.add("English Proficiency (Writing)");
+            skillsList.add("Search Engine Optimization");
+            skillsList.add("Facebook Marketing");
+            skillsList.add("Instagram Marketing");
+            skillsList.add("Creative Marketing");
+            skillsList.add("English Proficiency (Spoken)");
+            skillsList.add("Email marketing");
+            skillsList.add("Search engine marketing (SEM)");
+        }
+        else if(selectedRole.equals("Web Development"))
+        {
+            skillsList.add("HTML");
+            skillsList.add("CSS");
+            skillsList.add("JavaScript");
+            skillsList.add("PHP");
+            skillsList.add("React.js");
+            skillsList.add("Wordpress");
+            skillsList.add("Creative Marketing");
+            skillsList.add("Node.js");
+            skillsList.add("Bootstrap");
+            skillsList.add("MySQL");
+            skillsList.add("jQuery");
+        }
+        else if(selectedRole.equals("Marketing"))
+        {
+            skillsList.add("English Proficiency(Written)");
+            skillsList.add("English Proficiency(Spoken)");
+            skillsList.add("Digital Marketing");
+            skillsList.add("MS Excel");
+            skillsList.add("MS Office");
+            skillsList.add("Social Media Marketing");
+            skillsList.add("Creative Marketing");
+            skillsList.add("Email Marketing");
+            skillsList.add("Hindi Proficiency (Spoken)");
+        }
+        else if(selectedRole.equals("Mobile App Development"))
+        {
+            skillsList.add("Android Studio");
+            skillsList.add("Flutter");
+            skillsList.add("Java");
+            skillsList.add("React Native");
+            skillsList.add("iOS");
+            skillsList.add("Firebase");
+            skillsList.add("REST API");
+            skillsList.add("Kotlin");
+            skillsList.add("Node.js");
+            skillsList.add("React.js");
+        }
+
+        else if(selectedRole.equals("Operations"))
+        {
+            skillsList.add("MS Excel");
+            skillsList.add("English Proficiency(Written)");
+            skillsList.add("English Proficiency(Spoken)");
+            skillsList.add("MS Office");
+            skillsList.add("MS Word");
+            skillsList.add("MS Power Point");
+        }
+
+        else if(selectedRole.equals("Law Legal"))
+        {
+            skillsList.add("English Proficiency(Written)");
+            skillsList.add("English Proficiency(Spoken)");
+            skillsList.add("MS Office");
+            skillsList.add("MS Word");
+        }
+
+        else if(selectedRole.equals("Human Rescouces"))
+        {
+            skillsList.add("MS Excel");
+            skillsList.add("English Proficiency(Written)");
+            skillsList.add("English Proficiency(Spoken)");
+            skillsList.add("MS Office");
+            skillsList.add("MS Word");
+        }
+
+        else if(selectedRole.equals("Digital Marketing"))
+        {
+            skillsList.add("Social Media Marketing");
+            skillsList.add("Digital Marketing");
+            skillsList.add("English Proficiency (Writing)");
+            skillsList.add("English Proficiency (Spoken)");
+            skillsList.add("Search Engine Optimization (SEO)");
+            skillsList.add("Facebook Marketing");
+            skillsList.add("Instagram Marketing");
+            skillsList.add("Creative Marketing");
+            skillsList.add("Email marketing");
+            skillsList.add("Search engine marketing (SEM)");
+        }
+
+        else if(selectedRole.equals("Content Writing")){
+            skillsList.add("Social Media Marketing");
+            skillsList.add("Creative Writing");
+            skillsList.add("English Proficiency (Writing)");
+            skillsList.add("English Proficiency (Spoken)");
+            skillsList.add("Blogging");
+            skillsList.add("Digital Marketing");
+            skillsList.add("Search Engine Optimization (SEO)");
+        }
 
         ArrayList<String> selectedSkillsList = new ArrayList<>();
 
