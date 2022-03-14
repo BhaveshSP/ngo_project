@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3528205128205128" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/activity_verficiation.xml" value="0.3374358974358974" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.3528205128205128" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/donation_options_itemview_layout.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/education_details_dialog_layout.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_work.xml" value="0.35833333333333334" />

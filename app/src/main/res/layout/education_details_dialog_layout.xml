@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="24dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/white"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="64dp"
+
+        >
+
+        <ImageView
+            android:id="@+id/educationIcon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            app:srcCompat="@drawable/education"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/educationTitleText"
+            app:layout_constraintEnd_toStartOf="@id/educationTitleText"
+            app:layout_constraintBottom_toBottomOf="@id/educationTitleText"
+            android:layout_marginStart="16dp"
+            />
+        <TextView
+            android:id="@+id/educationTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Education Details::"
+            app:layout_constraintStart_toEndOf="@id/educationIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/cardTextColor"
+            />
+        <TextView
+            android:id="@+id/educationInstituteNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationTitleText"
+            android:textColor="@color/cardTextColor"
+            android:text="Institute Name:"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            />
+
+
+        <EditText
+            android:id="@+id/educationInstituteNameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationInstituteNameText"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="36dp"
+            android:hint="Enter Institute Name"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/educationHighestQualificationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationInstituteNameField"
+            android:textColor="@color/cardTextColor"
+            android:text="Highest Qualification:"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            />
+        <Spinner
+            android:id="@+id/educationHighestQualificationSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationHighestQualificationText"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="36dp"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/educationLatestResultScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationHighestQualificationSpinner"
+            android:textColor="@color/cardTextColor"
+            android:text="Last Qualification Exam Percentage:"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.05"
+            />
+        <EditText
+            android:id="@+id/educationLatestResultScoreField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationLatestResultScoreText"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="36dp"
+            android:hint="Enter Institute Name"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/workDoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/educationLatestResultScoreField"
+            android:layout_marginTop="16dp"
+            android:text="Done"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

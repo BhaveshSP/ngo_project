@@ -3,6 +3,7 @@ package com.udagoshsociety.ngo_v1.fragments;
 import static androidx.activity.result.contract.ActivityResultContracts.*;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.net.Uri;
@@ -37,6 +38,8 @@ public class WorkFragment extends Fragment {
     private final ActivityResultLauncher<String> launcher = registerForActivityResult(new GetContent(),
             this::getPdfDetailsFromUri);
     private TextView pdfFileNameText ;
+    private Button educationButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +54,10 @@ public class WorkFragment extends Fragment {
         Spinner availableSpinner = view.findViewById(R.id.workAvailableSpinner);
         Spinner roleSpinner = view.findViewById(R.id.workRoleSpinner);
         pdfFileNameText = view.findViewById(R.id.workResumeFileNameText);
+        educationButton = view.findViewById(R.id.workEducationButton);
+        educationButton.setOnClickListener(view12 -> {
+            showEducationDialog(view);
+        });
         ArrayList<String> availableList = new ArrayList<>();
         availableList.add("3 Months");
         availableList.add("6 Months");
@@ -100,9 +107,33 @@ public class WorkFragment extends Fragment {
     }
 
     private void pickResumeFromFiles(){
-        launcher.launch("application/pdf");
+        launcher.launch("application/zip");
     }
 
+
+    private void showEducationDialog(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        ViewGroup viewGroup = view.findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.education_details_dialog_layout,viewGroup,false);
+        builder.setView(dialogView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        alertDialog.show();
+        Spinner qualificationSpinner = dialogView.findViewById(R.id.educationHighestQualificationSpinner);
+        ArrayList<String> qualifications = new ArrayList<>();
+        qualifications.add("BE");
+        qualifications.add("BTECH");
+        qualifications.add("MBA");
+        qualifications.add("HSC");
+        qualifications.add("BCOMP");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line,qualifications);
+        qualificationSpinner.setAdapter(adapter);
+        Button doneButton = dialogView.findViewById(R.id.workDoneButton);
+        doneButton.setOnClickListener(view1 -> {
+            educationButton.setText("Edit");
+            alertDialog.dismiss();
+        });
+    }
 
 
     private void addChips(ChipGroup chipGroup,String selectedRole){
@@ -234,6 +265,7 @@ public class WorkFragment extends Fragment {
         }
 
         ArrayList<String> selectedSkillsList = new ArrayList<>();
+        chipGroup.removeAllViews();
 
         for (String skill : skillsList){
             Chip chip = new Chip(requireContext());

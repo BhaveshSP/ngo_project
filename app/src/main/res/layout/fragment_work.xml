@@ -9,6 +9,8 @@
     android:orientation="vertical"
     tools:context=".fragments.WorkFragment"
     >
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +39,7 @@
                     android:id="@+id/workCardTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="We are hiring"
+                    android:text="Providing Internships"
                     android:textColor="@color/cardTextColor"
                     android:textSize="16sp"
                     android:gravity="center"
@@ -159,6 +161,36 @@
             android:layout_marginTop="8dp"
             />
 
+
+        <TextView
+            android:id="@+id/workEducationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/workContactField"
+            app:layout_constraintStart_toStartOf="@id/workInformationFillingText"
+            app:layout_constraintEnd_toEndOf="@id/workInformationFillingText"
+            android:text="Education Details:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/cardTextColor"
+            android:textSize="12sp"
+            app:layout_constraintHorizontal_bias="0"
+            />
+
+        <Button
+            android:id="@+id/workEducationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/workResumeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workEducationText"
+            android:layout_marginTop="12dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="Add"
+            android:textAllCaps="false"
+            />
+
+
         <TextView
             android:id="@+id/workSkillsText"
             android:layout_width="wrap_content"
@@ -192,7 +224,7 @@
             android:id="@+id/workAvailableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workContactField"
+            app:layout_constraintTop_toBottomOf="@id/workEducationButton"
             app:layout_constraintStart_toStartOf="@id/workContactField"
             app:layout_constraintEnd_toEndOf="@id/workContactField"
             android:text="Availability"
@@ -250,22 +282,19 @@
             />
 
 
-
         <TextView
             android:id="@+id/workQuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workSkillsChipGroup"
-            app:layout_constraintStart_toStartOf="@id/workContactField"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
             android:text="Why Should We Hire You?"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
             android:textColor="@color/cardTextColor"
             android:textSize="12sp"
-            app:layout_constraintHorizontal_bias="0"
-            />
-
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.038"
+            app:layout_constraintStart_toStartOf="@id/workContactField"
+            app:layout_constraintTop_toBottomOf="@id/workSkillsChipGroup" />
 
         <EditText
             android:id="@+id/workAnswerField"
@@ -285,15 +314,59 @@
 
 
         <TextView
+            android:id="@+id/workPrevInternshipText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Have you done Any Internships in the Past?"
+            android:textColor="@color/cardTextColor"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.038"
+            app:layout_constraintStart_toStartOf="@id/workContactField"
+            app:layout_constraintTop_toBottomOf="@id/workAnswerField"
+
+            />
+
+        <RadioGroup
+            android:id="@+id/workPrevInternshipRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/workPrevInternshipText"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="36dp"
+            >
+            <RadioButton
+                android:id="@+id/workPrevInternshipRadioOptionYes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"
+
+                />
+
+            <RadioButton
+                android:id="@+id/workPrevInternshipRadioOptionNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"
+                />
+
+        </RadioGroup>
+
+        <TextView
             android:id="@+id/workResumeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/workAnswerField"
+            app:layout_constraintTop_toBottomOf="@id/workPrevInternshipRadioGroup"
             app:layout_constraintStart_toStartOf="@id/workAnswerField"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Resume"
+            android:text="Project Zip File (Optional)"
             android:textStyle="bold"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:textColor="@color/cardTextColor"
             android:textSize="12sp"
             app:layout_constraintHorizontal_bias="0"
@@ -332,7 +405,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/workResumeUploadButton"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="Submit"
             android:textSize="15sp"
             android:paddingHorizontal="48dp"
