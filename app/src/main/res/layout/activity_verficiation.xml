@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signInsignUp.VerificationActivity">
+    tools:context=".signInSignUp.VerificationActivity">
 
     <TextView
         android:id="@+id/verifyTitleText"
@@ -60,6 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
         />
 
     <EditText

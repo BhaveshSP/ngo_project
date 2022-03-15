@@ -1,4 +1,4 @@
-package com.udagoshsociety.ngo_v1.signInsignUp;
+package com.udagoshsociety.ngo_v1.signInSignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,17 +12,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.udagoshsociety.ngo_v1.MainActivity;
 import com.udagoshsociety.ngo_v1.R;
-import com.udagoshsociety.ngo_v1.SplashScreenActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +29,7 @@ public class VerificationActivity extends AppCompatActivity {
     private String verificationId = "";
     private boolean codeSent = false;
     private FirebaseAuth auth;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
             Toast.makeText(VerificationActivity.this,
@@ -44,7 +40,10 @@ public class VerificationActivity extends AppCompatActivity {
         public void onVerificationFailed(@NonNull FirebaseException e) {
             Toast.makeText(VerificationActivity.this,
                     "Verification Code Not Send\n Please Check your Internet", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "FirebaseException: "+e.getMessage());
+            Log.d(TAG, "FirebaseException: "+e.getLocalizedMessage());
             progressBar.setVisibility(View.GONE);
+            phoneNumber.setVisibility(View.VISIBLE);
             verifyButton.setText("Send OTP");
         }
 
@@ -86,7 +85,7 @@ public class VerificationActivity extends AppCompatActivity {
                 }else{
                     phoneNumber.setVisibility(View.INVISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
-                    sendVerificationCode(phoneNumber.getText().toString());
+                    sendVerificationCode("+91"+phoneNumber.getText().toString());
                 }
             }
         });
@@ -94,8 +93,9 @@ public class VerificationActivity extends AppCompatActivity {
 
     private void sendVerificationCode(String phoneNumber){
         PhoneAuthOptions options =  PhoneAuthOptions.newBuilder(auth).setActivity(this)
-                .setTimeout(4000L, TimeUnit.SECONDS)
+                .setTimeout(4L, TimeUnit.SECONDS)
                 .setPhoneNumber(phoneNumber)
+                .setCallbacks(callbacks)
                 .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }

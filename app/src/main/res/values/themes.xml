@@ -9,7 +9,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/grey</item>
         <!-- Customize your theme here. -->
-
+    </style>
+    <style name="Theme.NGO_V1.FullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>
