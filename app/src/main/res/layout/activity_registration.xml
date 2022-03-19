@@ -1,10 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signInSignUp.RegistrationActivity">
+    tools:context=".signInSignUp.RegistrationActivity"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="64dp"
+        >
+
+        <TextView
+            android:id="@+id/registrationTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:text="Register"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32sp"
+            />
+
+        <TextView
+            android:id="@+id/registrationTitleTagText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This Information is useful in Contacting you \n So fill them correctly "
+            android:textColor="@color/textColor"
+            app:layout_constraintTop_toBottomOf="@id/registrationTitleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="18dp"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:textStyle="italic"
+            />
+        <TextView
+            android:id="@+id/registrationFirstNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name"
+            android:textColor="@color/textColor"
+            app:layout_constraintTop_toBottomOf="@id/registrationTitleTagText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="26dp"
+            />
+        <EditText
+            android:id="@+id/registrationFirstNameTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/registrationFirstNameText"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:hint="Enter First Name"
+            android:textSize="12sp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_first_name"
+            android:textColor="@color/hintTextColor"
+            android:textStyle="bold"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="8dp"
+            android:background="@drawable/edittext_background_curved"
+            />
+
+        <TextView
+            android:id="@+id/registrationLastNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:textColor="@color/textColor"
+            app:layout_constraintTop_toBottomOf="@id/registrationFirstNameTextInput"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="26dp"
+            />
+        <EditText
+            android:id="@+id/registrationLastNameTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/registrationLastNameText"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:hint="Enter Last Name"
+            android:textSize="12sp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_last_name"
+            android:textColor="@color/hintTextColor"
+            android:textStyle="bold"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="8dp"
+            android:background="@drawable/edittext_background_curved"
+            />
+
+
+        <TextView
+            android:id="@+id/registrationAgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textColor="@color/textColor"
+            app:layout_constraintTop_toBottomOf="@id/registrationLastNameTextInput"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="26dp"
+            />
+        <EditText
+            android:id="@+id/registrationAgeTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/registrationAgeText"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:hint="Enter Age "
+            android:textSize="12sp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_age"
+            android:textColor="@color/hintTextColor"
+            android:textStyle="bold"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="8dp"
+            android:inputType="phone"
+            android:background="@drawable/edittext_background_curved"
+            />
+
+        <TextView
+            android:id="@+id/registrationGenderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textColor="@color/textColor"
+            app:layout_constraintTop_toBottomOf="@id/registrationAgeTextInput"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="26dp"
+            />
+        <RadioGroup
+            android:id="@+id/registrationGenderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/registrationGenderText"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:id="@+id/registrationMaleOption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@drawable/radio_button_text_color_state"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@drawable/radio_button_background_color_state"
+                />
+            <RadioButton
+                android:id="@+id/registrationFemaleOption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@drawable/radio_button_text_color_state"
+                android:background="@drawable/radio_button_background_color_state"
+                />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/registrationDoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registrationGenderLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Done"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="48dp"
+            android:textAllCaps="false"
+            android:paddingVertical="16dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

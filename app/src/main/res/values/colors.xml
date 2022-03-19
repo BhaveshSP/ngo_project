@@ -9,5 +9,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#AAAAAA</color>
+    <color name="textColor">#8200E2</color>
+    <color name="hintTextColor">#9EA7B0</color>
+    <color name="textInputBackgroundColor">#E1F1FF</color>
 
 </resources>

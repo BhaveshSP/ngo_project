@@ -14,11 +14,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:text="Verification"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         android:textSize="32sp"
+        />
+
+    <TextView
+        android:id="@+id/verifyPhoneNumberTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:textColor="@color/textColor"
+        app:layout_constraintTop_toBottomOf="@id/verifyTitleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginStart="32dp"
+        android:textStyle="bold"
+        android:textSize="12sp"
         />
 
     <EditText
@@ -27,15 +42,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/verifyTitleText"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="48dp"
         android:hint="Enter Phone Number"
+        app:layout_constraintTop_toBottomOf="@id/verifyPhoneNumberTextTitle"
         android:textColor="@color/cardTextColor"
         android:textColorHint="@color/grey"
         android:paddingHorizontal="12dp"
         android:paddingVertical="12dp"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0"
         android:inputType="phone"
         />
     <Button

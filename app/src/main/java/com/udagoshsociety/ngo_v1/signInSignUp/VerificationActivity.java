@@ -1,9 +1,13 @@
 package com.udagoshsociety.ngo_v1.signInSignUp;
 
+import static com.udagoshsociety.ngo_v1.Constants.KEY_PHONE_NUMBER;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,13 +16,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.udagoshsociety.ngo_v1.Constants;
 import com.udagoshsociety.ngo_v1.MainActivity;
 import com.udagoshsociety.ngo_v1.R;
+import com.udagoshsociety.ngo_v1.network.FirebaseDao;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +34,7 @@ public class VerificationActivity extends AppCompatActivity {
     private EditText phoneNumber,verifyCode;
     private Button verifyButton;
     private ProgressBar progressBar;
-    private String verificationId = "";
+    private String verificationId = "";;
     private boolean codeSent = false;
     private FirebaseAuth auth;
     private final PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -53,6 +61,7 @@ public class VerificationActivity extends AppCompatActivity {
             Toast.makeText(VerificationActivity.this, "Verification Code Sent", Toast.LENGTH_SHORT).show();
             verifyCode.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
+            phoneNumber.setText("Verification Code");
             verifyButton.setText("Verify");
             verificationId = s;
             codeSent = true;
@@ -60,7 +69,7 @@ public class VerificationActivity extends AppCompatActivity {
         }
     };
 
-    private static final String TAG = "VerificationTAG";
+    private static final String TAG = "TESTING";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +85,7 @@ public class VerificationActivity extends AppCompatActivity {
                     Toast.makeText(this, "Please Enter Valid Verification Code", Toast.LENGTH_SHORT).show();
                 }else{
                     progressBar.setVisibility(View.VISIBLE);
-                    signInWithCred(verifyCode.getText().toString());
+                    signInWithCred(verifyCode.getText().toString(),this);
                 }
             }else {
                 if(phoneNumber.getText().toString().equals("")){
@@ -85,7 +94,12 @@ public class VerificationActivity extends AppCompatActivity {
                 }else{
                     phoneNumber.setVisibility(View.INVISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
-                    sendVerificationCode("+91"+phoneNumber.getText().toString());
+                    String phoneNumberText = "+91"+phoneNumber.getText().toString();
+                    SharedPreferences.Editor editor = getSharedPreferences(Constants.SHARED_PREF_KEY,MODE_PRIVATE).edit();
+                    editor.putString(KEY_PHONE_NUMBER,phoneNumberText);
+                    editor.apply();
+//                    goToMain();
+                    sendVerificationCode(phoneNumberText);
                 }
             }
         });
@@ -100,20 +114,30 @@ public class VerificationActivity extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    private void signInWithCred(String verificationCode){
+    private void signInWithCred(String verificationCode,Context context){
         PhoneAuthCredential cred = PhoneAuthProvider.getCredential(verificationId,verificationCode);
         auth.signInWithCredential(cred).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                goToMain();
+                goToMain(context);
             }else{
                 Toast.makeText(this, "Verification Failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void goToMain(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+    private void goToMain(Context context){
+        FirebaseDao dao = new FirebaseDao();
+        String authId = FirebaseAuth.getInstance().getUid();
+        dao.createUser(authId).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Intent intent = new Intent(context, RegistrationActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
     }
 
 

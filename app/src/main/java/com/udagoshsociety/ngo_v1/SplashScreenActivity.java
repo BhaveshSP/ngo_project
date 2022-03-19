@@ -9,6 +9,7 @@ import android.os.Handler;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.udagoshsociety.ngo_v1.signInSignUp.RegistrationActivity;
 import com.udagoshsociety.ngo_v1.signInSignUp.VerificationActivity;
 
 @SuppressLint("CustomSplashScreen")

@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/color_accent_background_top_bottom_curved.xml" value="0.223" />
+        <entry key="app/src/main/res/drawable/color_primary_background_curved.xml" value="0.223" />
+        <entry key="app/src/main/res/drawable/color_primary_background_top_bottom_curved.xml" value="0.223" />
+        <entry key="app/src/main/res/drawable/edittext_background_curved.xml" value="0.223" />
+        <entry key="app/src/main/res/drawable/radio_button_background_color_state.xml" value="0.223" />
+        <entry key="app/src/main/res/drawable/radio_button_text_color_state.xml" value="0.223" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3528205128205128" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.35833333333333334" />
