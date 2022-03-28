@@ -16,6 +16,11 @@
         android:name="com.udagoshsociety.ngo_v1.fragments.WorkFragment"
         android:label="fragment_work"
         tools:layout="@layout/fragment_work" />
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.udagoshsociety.ngo_v1.fragments.AboutUsFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about_us" />
 
 
 </navigation>

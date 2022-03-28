@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class VerificationActivity extends AppCompatActivity {
     private EditText phoneNumber,verifyCode;
     private Button verifyButton;
+    private TextView phoneNumberTitle;
     private ProgressBar progressBar;
     private String verificationId = "";;
     private boolean codeSent = false;
@@ -61,7 +63,7 @@ public class VerificationActivity extends AppCompatActivity {
             Toast.makeText(VerificationActivity.this, "Verification Code Sent", Toast.LENGTH_SHORT).show();
             verifyCode.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
-            phoneNumber.setText("Verification Code");
+            phoneNumberTitle.setText("Verification Code");
             verifyButton.setText("Verify");
             verificationId = s;
             codeSent = true;
@@ -75,6 +77,7 @@ public class VerificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verficiation);
         phoneNumber = findViewById(R.id.verifyPhoneNumberText);
+        phoneNumberTitle = findViewById(R.id.verifyPhoneNumberTextTitle);
         verifyButton = findViewById(R.id.verifyButton);
         progressBar = findViewById(R.id.verifyProgressBar);
         verifyCode = findViewById(R.id.verificationCodeText);

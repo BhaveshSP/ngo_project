@@ -12,4 +12,17 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="thank_you_for_donation">Thank you for your Donation Our Team will Contact you Shortly</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activities_text">\nHelping Mentally, Physically, Financially troubled people, Spreading Awareness, Providing Education and Donation to the needful, Organizing Spiritual trips
+    </string>
+    <string name="summary_text">We are a non-profit organization, Udaghosh Social Welfare Society registered in 2014 is based in Bhopal (M.P.)
+        India. We hope for a discrimination-free future and act towards making that a reality where people dont have to
+        fight for their basic necessities, rights, and security. We focus on enabling equal access to quality education,
+        healthcare, shelter, clothes, food, and water for all. Udaghosh Social Welfare Society works with the most vulnerable
+        and marginalized members of our society to ensure they get the opportunities they deserve to improve their lives as well
+        as their future generation. We also focus on girls and women to ensure they live in a violence-free environment with the
+        freedom to expand their minds.</string>
+    <string name="long_term_impact_text">This Empowerment Project prepares girls to meet the challenges of their generation by giving them tools, awareness and knowledge to avoid negative outcomes for self-sufficiency, educational attainment, life enhancement and ultimate success.</string>
+    <string name="need_text">Historically at-risk and traditionally underserved,  girls of African descent are disproportionately affected by poverty, teen pregnancy, school dropout, HIV/AIDS and other sexually transmitted diseases (STD’s). Due to demand, Sisterhood Agenda and partner organizations implement A Journey Toward Womanhood on-site at different locations and provide much-needed training and educational resources such as curriculum guides, student manuals, program protocols, books, knowledge cards, and journals.</string>
 </resources>
